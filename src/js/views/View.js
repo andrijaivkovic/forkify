@@ -124,10 +124,13 @@ export default class View {
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
-  // PROTECTED METHODS (_)
+  // PROTECTED METHODS
+
   // Function to clear out the parent element of the 'view'
   _clear() {
     // Clearing out the element we want to attach the newly created element to
-    this._parentElement.innerHTML = '';
+    while (this._parentElement.firstChild) {
+      this._parentElement.removeChild(this._parentElement.firstChild);
+    }
   }
 }
